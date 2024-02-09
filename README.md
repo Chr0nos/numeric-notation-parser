@@ -22,4 +22,10 @@ Input is marked as a string, output as a list of int
 ## Example
 ```python
 from numeric_notation_parser import notation_to_integer_generator
+
+for number in notation_to_integer_generator("4,100-120/2,-10--20/2"):
+    print(number)
 ```
+
+You can also pass `raise_errors` if you want to raise a `ValueError` in case of an invalid format.
+By default the parser will ignore any invalid tokens, so "1,foo,2,bar,3" will output `[1, 2, 3]`
