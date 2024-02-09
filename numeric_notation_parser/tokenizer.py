@@ -38,9 +38,3 @@ def notation_to_integer_generator(notation: str, raise_errors: bool = False) -> 
             yield from range(start, end + direction, step)
         elif raise_errors:
             raise ValueError(f"Invalid token {token}")
-
-
-import sys
-
-if __name__ == "__main__":
-    print(list(notation_to_integer_generator(sys.argv[1], True)))
