@@ -11,7 +11,8 @@ def test_simple_formating():
 
 
 def test_multples_simple_formating():
-    assert list(notation_to_integer_generator("10,20,30,42,0,-100")) == [10, 20, 30, 42, 0, -100]
+    expected = [10, 20, 30, 42, 0, -100]
+    assert list(notation_to_integer_generator("10,20,30,42,0,-100")) == expected
 
 
 def test_range_formating():
@@ -27,4 +28,5 @@ def test_range_with_step():
 
 
 def test_with_everything():
-    assert list(notation_to_integer_generator("42,100,-100,20-30/2,0--1")) == [42, 100, -100, 20, 22, 24, 26, 28, 30, 0, -1]
+    expected = [42, 100, -100, 20, 22, 24, 26, 28, 30, 0, -1]
+    assert list(notation_to_integer_generator("42,100,-100,20-30/2,0--1")) == expected

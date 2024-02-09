@@ -19,14 +19,14 @@ def notation_to_integer_generator(notation: str, raise_errors: bool = False) -> 
     Yields:
         Iterator[int]: An iterator of integers parsed from the notation string.
     """
-    rule_simple = re.compile(r'(?P<value>\-?\d+)$')
-    rule_with_range = re.compile(r'(?P<start>\-?\d+)-(?P<end>\-?\d+)$')
-    rule_with_range_and_step = re.compile(r'(?P<start>\-?\d+)-(?P<end>\-?\d+)/(?P<step>\-?\d+)$')
+    rule_simple = re.compile(r"(?P<value>\-?\d+)$")
+    rule_with_range = re.compile(r"(?P<start>\-?\d+)-(?P<end>\-?\d+)$")
+    rule_with_range_and_step = re.compile(r"(?P<start>\-?\d+)-(?P<end>\-?\d+)/(?P<step>\-?\d+)$")
 
-    for token in notation.split(','):
+    for token in notation.split(","):
         token = token.strip()
         if match := rule_simple.match(token):
-            yield int(match.group('value'))
+            yield int(match.group("value"))
         elif match := rule_with_range.match(token):
             start, end = map(int, match.groups())
             step = 1 if start < end else -1
